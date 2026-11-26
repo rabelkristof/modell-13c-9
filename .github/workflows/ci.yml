@@ -1,0 +1,23 @@
+name: CI
+on: [push]
+jobs:
+  kartya3:
+    name: Feladatkártya 3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pandas numpy scikit-learn pytest nbclient nbformat ipykernel
+      - run: python -m pytest -v tests/test_kartya3.py
+  meres:
+    name: Junior mérés
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pandas numpy scikit-learn pytest nbclient nbformat ipykernel
+      - run: python -m pytest -v tests/test_meres_junior.py
